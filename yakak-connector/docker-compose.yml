@@ -1,0 +1,43 @@
+version: '3'
+services:
+#  quarkus-app:
+#    container_name: quarkus-application
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      - QUARKUS_HTTP_PORT=8080
+#    networks:
+#      - quarkus-network
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: erp_data
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pwd 
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - quarkus-network
+  postgres-db:
+      image: postgres:latest
+      container_name: postgres-container
+      environment:
+        POSTGRES_USER: yakak-user
+        POSTGRES_PASSWORD: yakak-pwd
+        POSTGRES_DB: yakak-db
+      ports:
+        - "5432:5432"
+      networks:
+        - quarkus-network
+networks:
+  quarkus-network:
+    driver: bridge
+volumes:
+  mysql_data:
