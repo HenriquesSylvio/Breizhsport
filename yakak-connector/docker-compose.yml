@@ -22,20 +22,20 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./data/volume_data:/var/lib/mysql
     networks:
       - quarkus-network
-  postgres-db:
-      image: postgres:latest
-      container_name: postgres-container
-      environment:
-        POSTGRES_USER: yakak-user
-        POSTGRES_PASSWORD: yakak-pwd
-        POSTGRES_DB: yakak-db
-      ports:
-        - "5432:5432"
-      networks:
-        - quarkus-network
+  # postgres-db:
+  #     image: postgres:latest
+  #     container_name: postgres-container
+  #     environment:
+  #       POSTGRES_USER: yakak-user
+  #       POSTGRES_PASSWORD: yakak-pwd
+  #       POSTGRES_DB: yakak-db
+  #     ports:
+  #       - "5432:5432"
+  #     networks:
+  #       - quarkus-network
 networks:
   quarkus-network:
     driver: bridge
