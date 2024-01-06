@@ -1,4 +1,4 @@
-package yakak.api.resources;
+package yakak.api.resources.v1;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import jakarta.ws.rs.core.MediaType;
 import yakak.api.models.entities.User;
 import yakak.api.services.UserService;
 
-@Path("/users")
+@Path("/v1/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {

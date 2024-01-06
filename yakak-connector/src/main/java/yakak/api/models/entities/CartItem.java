@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-public class OrderItem extends PanacheEntityBase {
+public class CartItem extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -22,8 +22,8 @@ public class OrderItem extends PanacheEntityBase {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Orders order;
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -32,36 +32,36 @@ public class OrderItem extends PanacheEntityBase {
     @NotNull(message = "Quantity is required")
     private Integer quantity;
 
-    @NotNull(message = "Unit price is required")
-    @Column(name = "unit_price")
-    private Double unitPrice;
+    // @NotNull(message = "Unit price is required")
+    // @Column(name = "unit_price")
+    // private Double unitPrice;
 
-    @NotNull(message = "Total price is required")
-    @Column(name = "total_price")
-    private Double totalPrice;
+    // @NotNull(message = "Total price is required")
+    // @Column(name = "total_price")
+    // private Double totalPrice;
 
     // Constructors, getters, setters, and other methods
 
     // Constructors
-    public OrderItem() {
+    public CartItem() {
     }
 
-    public OrderItem(Orders order, Item item, Integer quantity, Double unitPrice, Double totalPrice) {
-        this.order = order;
+    public CartItem(Cart cart, Item item, Integer quantity, Double unitPrice, Double totalPrice) {
+        this.cart = cart;
         this.item = item;
         this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.totalPrice = totalPrice;
+        // this.unitPrice = unitPrice;
+        // this.totalPrice = totalPrice;
     }
 
     // Getters and setters
 
-    public Orders getOrder() {
-        return order;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setOrder(Orders order) {
-        this.order = order;
+    public void setCart(Cart order) {
+        this.cart = order;
     }
 
     public Item getItem() {
@@ -80,21 +80,21 @@ public class OrderItem extends PanacheEntityBase {
         this.quantity = quantity;
     }
 
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
+    // public Double getUnitPrice() {
+    //     return unitPrice;
+    // }
 
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
+    // public void setUnitPrice(Double unitPrice) {
+    //     this.unitPrice = unitPrice;
+    // }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
+    // public Double getTotalPrice() {
+    //     return totalPrice;
+    // }
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+    // public void setTotalPrice(Double totalPrice) {
+    //     this.totalPrice = totalPrice;
+    // }
 
     public UUID getId() {
         return id;

@@ -2,7 +2,7 @@ package yakak.api.models;
 
 public enum Role {
     ADMIN("Administrator"),
-    USER("Regular User"),
+    USER("User"),
     GUEST("Guest");
 
     private final String displayName;
