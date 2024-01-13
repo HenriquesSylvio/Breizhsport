@@ -3,6 +3,8 @@ package yakak.api.resources.v1;
 import java.util.List;
 import java.util.UUID;
 
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import io.quarkus.panache.common.Sort;
 import jakarta.transaction.Transactional;
@@ -17,9 +19,10 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import yakak.api.models.entities.Category;
 
-@Path("/categories")
+@Path("/v1/category")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Tag(name = "Category", description = "Operations related to category of product")
 public class CategoryResource implements PanacheRepositoryBase<Category, UUID> {
 
     @GET

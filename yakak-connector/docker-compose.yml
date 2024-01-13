@@ -9,8 +9,6 @@ services:
       - "8080:8080"
     environment:
       - QUARKUS_HTTP_PORT=8080
-    volumes:
-      - ./deploy/v1/quarkus_data:/path/in/container
     networks:
       - quarkus-network
   mysql:
@@ -24,12 +22,22 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./deploy/v1/mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     networks:
       - quarkus-network
+  #postgres-db:
+  #    image: postgres:latest
+  #    container_name: postgres-container
+  #    environment:
+  #      POSTGRES_USER: yakak-user
+  #      POSTGRES_PASSWORD: yakak-pwd
+  #      POSTGRES_DB: yakak-db
+  #    ports:
+  #      - "5432:5432"
+  #    networks:
+  #      - quarkus-network
 networks:
   quarkus-network:
     driver: bridge
 volumes:
   mysql_data:
-  quarkus_data:

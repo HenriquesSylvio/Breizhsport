@@ -37,7 +37,7 @@ public class Category extends PanacheEntityBase {
     private List<Category> children;
 
     @OneToMany(mappedBy = "category",cascade = CascadeType.REFRESH)
-    private List<Item> items;
+    private List<Product> products;
 
     public Category() {}
 
@@ -62,13 +62,8 @@ public class Category extends PanacheEntityBase {
         this.description = description;
     }
 
-
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public Category getParentCategory() {

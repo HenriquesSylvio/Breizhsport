@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class Item extends PanacheEntityBase {
+public class Product extends PanacheEntityBase {
     
     @Id
     @GeneratedValue(generator = "uuid")
@@ -41,10 +41,10 @@ public class Item extends PanacheEntityBase {
     // Constructors, getters, setters, and other methods
 
     // Constructors
-    public Item() {
+    public Product() {
     }
 
-    public Item(String name, String description, Double price, Integer stockQuantity, Category category) {
+    public Product(String name, String description, Double price, Integer stockQuantity, Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -96,9 +96,5 @@ public class Item extends PanacheEntityBase {
 
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 }

@@ -1,16 +1,19 @@
 package yakak.api.models.entities;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import yakak.api.models.Role;
 
@@ -36,6 +39,9 @@ public class User extends PanacheEntityBase {
     @NotBlank(message = "password is required")
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Orders> orders;
 
     @NotBlank(message = "role is required")
     @Column(name = "role")
@@ -97,10 +103,4 @@ public class User extends PanacheEntityBase {
     public UUID getId() {
         return id;
     }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    
 }
