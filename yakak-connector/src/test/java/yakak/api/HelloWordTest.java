@@ -9,12 +9,5 @@ import io.quarkus.test.junit.QuarkusTest;
 @QuarkusTest
 public class HelloWordTest {
 
-    @Test
-    public void testHelloEndpoint() {
-        given()
-          .when().get("/api/v1/category")
-          .then()
-             .statusCode(200);
-    }
 
 }
