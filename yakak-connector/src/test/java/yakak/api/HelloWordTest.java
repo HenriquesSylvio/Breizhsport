@@ -12,7 +12,7 @@ public class HelloWordTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/api/v1/status")
+          .when().get("/api/v1/category")
           .then()
              .statusCode(200);
     }
