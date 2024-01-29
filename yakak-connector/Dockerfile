@@ -5,6 +5,7 @@ COPY --chown=quarkus:quarkus /yakak-connector/.mvn /code/.mvn
 COPY --chown=quarkus:quarkus /yakak-connector/pom.xml /code/
 USER quarkus
 WORKDIR /code
+RUN chmod +x ./mvnw
 RUN ./mvnw -B org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
 COPY /yakak-connector/src /code/src
 RUN ./mvnw package -Dnative
