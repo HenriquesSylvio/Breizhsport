@@ -18,9 +18,11 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11'
-
+    - name: ls
+      run: ls
+      
     - name: Change to project directory
-      run: cd /yakak-connector
+      run: cd yakak-connector
       
     - name: ls
       run: ls
