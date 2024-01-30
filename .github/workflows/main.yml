@@ -20,13 +20,14 @@ jobs:
         java-version: '11'
 
     - name: Change to project directory
-      run: cd yakak-connector
+      run: cd /yakak-connector
       
     - name: ls
       run: ls
 
     - name: Build with Maven
-      run: mvn clean install -B
+      run: mvn clean install -B -X
+
 
   deploy:
     runs-on: ubuntu-latest
